@@ -1,3 +1,6 @@
+var link = document.createElement("link");
+
+
 import {API_URL} from "../../settings.js"
 const URL = API_URL + "/matrix"
 
@@ -27,13 +30,15 @@ function renderMatrixData(data) {
 
 console.log(data[0].cards)
 console.log(data[0].cards[0].suit)
+
+
 if (data.length >= 0) {
 
     data[0].suits.forEach((suit) => {
       combinedRow += `<tr><td>${suit.suitName} <br> ${suit.suitDescription}</td>`;
       data[0].cards.forEach((card) => {
         if (card.suit == suit.suitName){
-          combinedRow += `<td><img src="${card.image}" style="width: 60px"/> <br> Person: ${card.person} <br> ${card.action} <br> ${card.object}</td>`;
+          combinedRow += `<td><div>${card.person}</div> <br> <div><img src="${card.image}" style="width: 60px"/></div> <br> <div>${card.action}</div> <br> <div>${card.object}</div></td>`;
         }
       });
       combinedRow += `</tr>`;
