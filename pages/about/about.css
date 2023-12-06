@@ -1,0 +1,60 @@
+
+
+
+
+ul.list {
+    list-style-type: disc; /* or your preferred bullet style */
+    padding-left: 1em;
+  }
+  
+  ul.inner-list {
+    list-style-type: circle; /* or your preferred bullet style */
+    padding-left: 1em;
+  }
+  
+  li {
+    margin-bottom: 10px;
+  }
+  .container {
+    display: flex;
+    justify-content: space-between; /* Distribute space between rows */
+    padding: 20px; /* Add padding to the container */
+  }
+  
+  .category {
+    text-align: center; /* Center text */
+    width: 30%; /* Set a width to prevent full expansion */
+    border-bottom: 1px solid #ccc; /* Add bottom border */
+  }
+  
+  .category h2 {
+    margin-bottom: 10px; /* Add margin below the heading */
+  }
+  :root {
+    --img-width: 65px; /* Set default width */
+  }
+
+  
+  .card-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 10px; /* Space between rows */
+  }
+  
+  .heart-spade {
+    margin-bottom: 20px; /* Add margin between heart and spade */
+  }
+  
+  .clubs-diamond {
+    margin-bottom: 20px; /* Add margin between clubs and diamond */
+  }
+  
+  .small-img {
+    width: var(--img-width); /* Use CSS variable for width */
+    height: auto; /* Maintain aspect ratio */
+  }
+  
+  .text-area {
+    margin-top: 20px; /* Add margin between images and text */
+  }

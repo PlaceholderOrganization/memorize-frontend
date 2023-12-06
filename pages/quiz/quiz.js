@@ -1,7 +1,7 @@
 import { API_URL } from "../../settings.js";
 
 let cardDataArray = []; // Defines cardDataArray at the top level of the module
-let unchangedArray = []
+let unchangedArray = [] // filtrer i denne 
 let correctGuesses = [];
 let incorrectGuesses = [];
 let isCardRevealed = false;
@@ -46,12 +46,16 @@ async function fetchCardData() {
         } else {
             console.log('No records found in the response');
         }
+
     } catch (error) {
         console.error('Fetch error:', error);
     }
     startTime = Date.now();
     // showTimer();
 }
+
+
+
 
 function fetchRandomCardData() {
     if(notFirstCard) {
@@ -168,6 +172,7 @@ async function saveScore() {
             console.log(err)
         }
 }
+
 
 
 

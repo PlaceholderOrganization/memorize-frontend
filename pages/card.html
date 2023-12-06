@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Add Card</title>
+</head>
+<body>
+    <h1>Add Card</h1>
+    <form id="addCardForm">
+        <label for="suitSelect">Select Suit:</label>
+        <select id="suitSelect">
+            <option value="hearts">Hearts</option>
+            <option value="spades">Spades</option>
+            <option value="diamonds">Diamonds</option>
+            <option value="clubs">Clubs</option>
+        </select><br><br>
+
+        <label for="valueSelect">Select Value:</label>
+        <select id="valueSelect">
+            <option value="ace">Ace</option>
+            <option value="2">2</option>
+            <option value="3">3</option>
+            <option value="4">4</option>
+            <option value="5">5</option>
+            <option value="6">6</option>
+            <option value="7">7</option>
+            <option value="8">8</option>
+            <option value="9">9</option>
+            <option value="10">10</option>
+            <option value="jack">Jack</option>
+            <option value="queen">Queen</option>
+            <option value="king">King</option>
+        </select><br><br>
+
+        <label for="personInput">Person:</label>
+        <input type="text" id="personInput" name="person"><br><br>
+
+        <label for="actionInput">Action:</label>
+        <input type="text" id="actionInput" name="action"><br><br>
+
+        <label for="objectInput">Object:</label>
+        <input type="text" id="objectInput" name="object"><br><br>
+
+        <label for="imageInput">Image (File):</label>
+        <input type="file" id="imageInput" accept="image/*"><br><br>
+
+        <button type="submit">Add Card</button>
+    </form>
+
+    <script>
+    
+
+       document.getElementById('addCardForm').addEventListener('submit', function(event) {
+        event.preventDefault();
+
+        // Get input values
+        const person = document.getElementById('personInput').value;
+        const action = document.getElementById('actionInput').value;
+        const object = document.getElementById('objectInput').value;
+        const selectedSuitId = document.getElementById('suitSelect').value;
+        const selectedValueId = document.getElementById('valueSelect').value;
+
+        // Process image (as FormData)
+        const imageInput = document.getElementById('imageInput');
+        const file = imageInput.files[0];
+
+        // Create FormData object
+        const formData = new FormData();
+        formData.append('person', person);
+        formData.append('action', action);
+        formData.append('object', object);
+        formData.append('suitId', selectedSuitId);
+        formData.append('valueId', selectedValueId);
+        formData.append('imageFile', file);
+
+        // Send the FormData to the backend via API
+        addCardToDatabase(formData);
+    });
+
+    function addCardToDatabase(cardData) {
+        fetch('http://localhost:8080/api/card/add', {
+            method: 'POST',
+            body: cardData
+        })
+        .then(response => {
+            if (response.ok) {
+                alert('Card added successfully!');
+            } else {
+                throw new Error('Failed to add card.');
+            }
+        })
+        .catch(error => {
+            alert('Error: ' + error.message);
+        });
+    }
+    </script>
+</body>
+</html>
