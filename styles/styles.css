@@ -17,6 +17,11 @@ body {
   box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
 }
 
+.form-container{
+  display: grid;
+  justify-items: center;
+}
+
 .form-container img {
   max-height: 450px;
   min-height: 450px;
@@ -26,6 +31,7 @@ body {
 /* Form Styles */
 .form-group {
   margin-top: 15px;
+  padding: 5px 0px 0px 20px;
 }
 
 .form-group label {

@@ -243,7 +243,16 @@ function toggleDisplayStyle(btn) {
     } else {
         btn.style.display = "none";
     }
+}
 
+function togglePlayAgainBtn() {
+    var nextBtn = document.getElementById("next-card-btn");
+    var againBtn = document.getElementById("play-again-btn");
+    if(nextBtn.style.display ==="none") {
+        againBtn.style.display = "block";
+    } else {
+        againBtn.style.display = "none";
+    }
 }
 
 function resetCardArrays() {
@@ -335,7 +344,7 @@ async function saveScore() {
 
 
 function handleShortCuts (evt) {
-    if (evt.altKey && evt.code === 'KeyN'){
+    if (evt.altKey && evt.code === 'KeyN' && document.getElementById("next-card-btn").style.display !== "none"){
         evt.preventDefault();
         document.getElementById("next-card-btn").click();
     }
