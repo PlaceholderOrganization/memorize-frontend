@@ -21,7 +21,7 @@
 ### Branching Strategy
 Our branching strategy incorporates several key elements commonly used in collaborative software development.
 
-We use the <b>'main'</b> branch as our released codebase. For new developments, we create feature branches from our development branch. Once a feature is complete, we initiate a pull request to merge it into the <b>'development'</b> branch. This triggers automated builds and tests via GitHub Actions, and if successful, the changes are deployed to Azure Dev Web App service. When the sprint is complete, we deploy our successfully deployed development branch to our staging branch for further testing. When customer accepts the changes, we merge staging into main.
+We use the <b>'main'</b> branch as our released codebase. For new developments, we create feature branches from our development branch. Once a feature is complete, we initiate a pull request to merge it into the <b>'development'</b> branch. This triggers automated builds and tests via GitHub Actions, and if successful, the changes are deployed to Azure Dev Web App service. When the sprint is complete, we deploy our successfully deployed development branch to our staging branch for further testing. When customer accepts the changes, we merge staging into main
 
 <b>Key elements in strategy</b>
 1. <b>Main Branch (live production)</b><br>
